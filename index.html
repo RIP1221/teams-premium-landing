@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teams Premium для бизнеса: запуск за 30 дней</title>
+<meta name="description" content="Teams Premium для вашей компании: пилот на 30 дней, прозрачная цена и готовые шаблоны команд. Учебный проект.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%235B5FC7%22/><text x=%2250%22 y=%2272%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22700%22>T</text></svg>">
+
+<!-- ============================================================
+  НАСТРОЙКА АНАЛИТИКИ (ЛР3, этап 3)
+  1) Вставьте ID потока Google Analytics 4 вместо G-XXXXXXXXXX
+  2) Вставьте номер счётчика Яндекс Метрики вместо 00000000
+  Пока ID не заменены, счётчики не загружаются (сайт работает как обычно).
+  ============================================================ -->
+<script>
+  var GA_ID = "G-XXXXXXXXXX";
+  var YM_ID = 00000000;
+
+  // ---------- Google Analytics 4 ----------
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  if (GA_ID.indexOf("XXXX") === -1) {
+    var gs = document.createElement("script");
+    gs.async = true;
+    gs.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    document.head.appendChild(gs);
+    gtag("js", new Date());
+    gtag("config", GA_ID);
+  }
+
+  // ---------- Яндекс Метрика ----------
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  if (YM_ID) {
+    ym(YM_ID, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
+  }
+
+  // ---------- Единая функция отправки событий в обе системы ----------
+  function track(name, params) {
+    params = params || {};
+    try { if (GA_ID.indexOf("XXXX") === -1) gtag("event", name, params); } catch (e) {}
+    try { if (YM_ID) ym(YM_ID, "reachGoal", name, params); } catch (e) {}
+  }
+</script>
+
+<style>
+  :root{
+    --purple:#5B5FC7; --purple-d:#464775; --navy:#2B2C48; --lilac:#EEF0FF; --lilac2:#D9DBFF;
+    --text:#242424; --gray:#5C5C6B; --green:#107C10; --line:#E1E1E8; --white:#fff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--text);line-height:1.55;background:#fff}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+  .logo i{display:inline-flex;width:34px;height:34px;border-radius:8px;background:var(--purple);color:#fff;align-items:center;justify-content:center;font-style:normal}
+  .nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;color:var(--gray);font-weight:500}
+  .btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:600;border-radius:8px;padding:14px 26px;transition:.15s}
+  .btn-p{background:var(--purple);color:#fff}.btn-p:hover{background:var(--purple-d)}
+  .btn-s{background:#fff;color:var(--purple);border:1.5px solid var(--purple)}.btn-s:hover{background:var(--lilac)}
+  .btn-sm{padding:10px 18px;font-size:15px}
+  .hero{background:var(--lilac);padding:84px 0}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .eyebrow{color:var(--purple);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  h1{font-size:48px;line-height:1.12;margin:14px 0 18px}
+  .lead{font-size:19px;color:var(--gray);margin:0 0 28px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .chip{display:inline-block;margin-top:22px;background:#fff;border-radius:100px;padding:9px 16px;font-weight:600;font-size:14px;color:var(--green)}
+  .mock{background:#fff;border-radius:22px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .mock div{height:118px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .mock span{width:46px;height:46px;border-radius:50%}
+  section{padding:76px 0}
+  h2{font-size:34px;margin:0 0 36px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:var(--lilac);border-radius:16px;padding:30px}
+  .card b{display:inline-flex;width:44px;height:44px;border-radius:11px;background:var(--purple);color:#fff;align-items:center;justify-content:center;margin-bottom:16px;font-size:18px}
+  .card h3{margin:0 0 8px;font-size:21px}
+  .card p{margin:0;color:var(--gray)}
+  .stats{background:var(--navy);color:#fff;padding:52px 0}
+  .stats .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .stats strong{display:block;font-size:40px}
+  .stats span{color:var(--lilac2)}
+  .calc{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .calc-card{border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:0 8px 30px rgba(43,44,72,.06)}
+  .calc-card label{font-weight:600;display:flex;justify-content:space-between}
+  input[type=range]{width:100%;margin:16px 0 24px;accent-color:var(--purple)}
+  .price{font-size:46px;font-weight:800;color:var(--purple);margin:4px 0}
+  .muted{color:var(--gray);font-size:14px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{border:1px solid var(--line);border-radius:16px;padding:28px}
+  .step strong{font-size:38px;color:var(--purple);display:block}
+  .formbox{background:var(--lilac);border-radius:22px;padding:44px;display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+  form{display:grid;gap:14px}
+  input,select,textarea{width:100%;padding:13px 14px;border:1px solid var(--lilac2);border-radius:8px;font:inherit;background:#fff}
+  .ok{display:none;background:#fff;border-radius:14px;padding:28px;color:var(--green);font-weight:600}
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{cursor:pointer;font-weight:600;font-size:18px}
+  details p{color:var(--gray);margin:10px 0 0}
+  footer{background:var(--navy);color:var(--lilac2);padding:34px 0;font-size:14px}
+  #cookie{position:fixed;left:16px;right:16px;bottom:16px;max-width:620px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 10px 40px rgba(0,0,0,.15);display:flex;gap:14px;align-items:center;font-size:14px;z-index:20}
+  @media(max-width:860px){
+    .nav ul{display:none}.hero .wrap,.calc,.formbox{grid-template-columns:1fr}
+    h1{font-size:34px}.cards,.steps{grid-template-columns:1fr}.hero{padding:52px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><i>T</i> Microsoft Teams</a>
+    <ul>
+      <li><a href="#why">Возможности</a></li>
+      <li><a href="#calc">Стоимость</a></li>
+      <li><a href="#pilot">Пилот</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+    </ul>
+    <a class="btn btn-p btn-sm" href="#demo" data-cta="nav_demo">Запросить демо</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Teams Premium для бизнеса</div>
+        <h1>Запустите Teams для всей компании за 30 дней</h1>
+        <p class="lead">Пилот без обязательств, готовые шаблоны команд и понятная стоимость с первого экрана. Чаты, встречи и документы Office в одном приложении.</p>
+        <div class="cta">
+          <a class="btn btn-p" href="#demo" data-cta="hero_demo">Запросить демо</a>
+          <a class="btn btn-s" href="#calc" data-cta="hero_calc">Рассчитать стоимость</a>
+        </div>
+        <span class="chip">От 600 ₽ за пользователя в месяц, без скрытых платежей</span>
+      </div>
+      <div class="mock" aria-hidden="true">
+        <div style="background:var(--lilac2)"><span style="background:var(--purple)"></span></div>
+        <div style="background:var(--purple)"><span style="background:var(--lilac2)"></span></div>
+        <div style="background:var(--navy)"><span style="background:var(--lilac2)"></span></div>
+        <div style="background:var(--lilac2)"><span style="background:var(--navy)"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="why">
+    <div class="wrap">
+      <h2>Что решает Teams Premium</h2>
+      <div class="cards">
+        <div class="card"><b>1</b><h3>Прозрачная цена</h3><p>Стоимость считается за минуту: число сотрудников умножается на 600 ₽ в месяц. Никаких скрытых лицензий.</p></div>
+        <div class="card"><b>2</b><h3>Быстрый старт</h3><p>Готовые шаблоны команд для отделов, интерактивный онбординг и чек-листы для сотрудников и администраторов.</p></div>
+        <div class="card"><b>3</b><h3>Стабильные встречи</h3><p>Оптимизированный клиент, веб-версия для слабых устройств и рекомендации по настройке крупных встреч.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap">
+      <div><strong>320 млн+</strong><span>активных пользователей в месяц</span></div>
+      <div><strong>1 млн+</strong><span>организаций по всему миру</span></div>
+      <div><strong>1400+</strong><span>интеграций и приложений</span></div>
+    </div>
+  </div>
+
+  <section id="calc">
+    <div class="wrap calc">
+      <div>
+        <h2>Прозрачная стоимость</h2>
+        <p class="lead" style="margin:0">Передвиньте ползунок и сразу увидите ориентировочную стоимость Teams Premium для вашей компании. Первые 30 дней работаете в пилотном режиме.</p>
+      </div>
+      <div class="calc-card">
+        <label for="seats">Количество сотрудников <span id="seatsOut">600</span></label>
+        <input type="range" id="seats" min="10" max="5000" step="10" value="600">
+        <div class="muted">Ориентировочно в месяц</div>
+        <div class="price" id="priceMonth">360 000 ₽</div>
+        <div class="muted" id="priceYear">В год: 4 320 000 ₽ · Teams Premium: 600 ₽ за пользователя в месяц. Расчёт ориентировочный.</div>
+        <p style="margin:22px 0 0"><a class="btn btn-p" style="display:block;text-align:center" href="#demo" data-cta="calc_pilot">Запросить пилот на 30 дней</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilot" style="background:var(--lilac)">
+    <div class="wrap">
+      <h2>Как проходит пилот</h2>
+      <div class="steps">
+        <div class="step" style="background:#fff"><strong>01</strong><h3>Подключаем Teams</h3><p class="muted" style="font-size:16px">Включаем Teams в подписке Microsoft 365 для пилотной группы.</p></div>
+        <div class="step" style="background:#fff"><strong>02</strong><h3>Создаём команды</h3><p class="muted" style="font-size:16px">Используем готовые шаблоны для отделов и обучаем сотрудников.</p></div>
+        <div class="step" style="background:#fff"><strong>03</strong><h3>Считаем результат</h3><p class="muted" style="font-size:16px">Через 30 дней смотрим метрики нагрузки и безопасности и решаем, масштабировать ли.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="wrap formbox">
+      <div>
+        <h2 style="margin-bottom:16px">Запросить демо</h2>
+        <p class="lead" style="margin:0">Оставьте контакты, и мы покажем Teams Premium на вашем сценарии и рассчитаем пилот.</p>
+        <p class="muted" style="margin-top:18px">Это учебный проект: заявка нигде не сохраняется и не отправляется на сервер.</p>
+      </div>
+      <div>
+        <form id="leadForm" novalidate>
+          <input name="name" placeholder="Ваше имя" required>
+          <input name="email" type="email" placeholder="Рабочая почта" required>
+          <input name="company" placeholder="Компания">
+          <select name="size" aria-label="Размер компании">
+            <option value="">Сколько сотрудников?</option>
+            <option>до 50</option><option>50–250</option><option>250–1000</option><option>больше 1000</option>
+          </select>
+          <button class="btn btn-p" type="submit">Запросить демо</button>
+        </form>
+        <div class="ok" id="okBox">Спасибо! Заявка принята (демо-режим). Мы свяжемся с вами в ближайшее время.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Частые вопросы</h2>
+      <details><summary>Сколько стоит Teams Premium?</summary><p>600 ₽ за пользователя в месяц. Итоговую сумму можно оценить в калькуляторе выше.</p></details>
+      <details><summary>Что входит в пилот?</summary><p>30 дней работы с пилотной группой, готовые шаблоны команд, обучение сотрудников и отчёт по нагрузке и безопасности.</p></details>
+      <details><summary>Нужна ли подписка Microsoft 365?</summary><p>Да, Teams Premium подключается как надстройка к подписке Microsoft 365 вашей компании.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Учебный проект (НИЯУ МИФИ, «Маркетинг (специальные главы)», ЛР3). Страница не является официальным сайтом Microsoft. Цены и условия модельные.</div>
+</footer>
+
+<div id="cookie">
+  <span>Сайт использует cookie и системы аналитики (Google Analytics, Яндекс Метрика) для анализа посещаемости.</span>
+  <button class="btn btn-p btn-sm" id="cookieOk">Понятно</button>
+</div>
+
+<script>
+  // ---------- Калькулятор ----------
+  var seats = document.getElementById("seats");
+  var calcUsed = false;
+  function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0"); }
+  function updateCalc(){
+    var s = +seats.value;
+    document.getElementById("seatsOut").textContent = fmt(s);
+    document.getElementById("priceMonth").textContent = fmt(s * 600) + " ₽";
+    document.getElementById("priceYear").textContent = "В год: " + fmt(s * 600 * 12) + " ₽ · Teams Premium: 600 ₽ за пользователя в месяц. Расчёт ориентировочный.";
+  }
+  seats.addEventListener("input", function(){
+    updateCalc();
+    if (!calcUsed) { calcUsed = true; track("calculator_used", { seats: +seats.value }); }
+  });
+  updateCalc();
+
+  // ---------- Клики по кнопкам (цели CTA) ----------
+  document.querySelectorAll("[data-cta]").forEach(function(el){
+    el.addEventListener("click", function(){ track("cta_click", { cta_name: el.getAttribute("data-cta") }); });
+  });
+
+  // ---------- Форма: начало заполнения и отправка заявки ----------
+  var form = document.getElementById("leadForm"), started = false;
+  form.addEventListener("focusin", function(){
+    if (!started) { started = true; track("form_start"); }
+  });
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var email = form.elements["email"].value.trim(), name = form.elements["name"].value.trim();
+    if (!name || email.indexOf("@") < 1) {
+      form.elements[!name ? "name" : "email"].focus();
+      return;
+    }
+    track("generate_lead", { company_size: form.elements["size"].value || "не указано" });
+    form.style.display = "none";
+    document.getElementById("okBox").style.display = "block";
+  });
+
+  // ---------- Глубина прокрутки ----------
+  var marks = { 25: false, 50: false, 75: false, 90: false };
+  window.addEventListener("scroll", function(){
+    var h = document.documentElement;
+    var pct = Math.round((h.scrollTop + window.innerHeight) / h.scrollHeight * 100);
+    Object.keys(marks).forEach(function(k){
+      if (!marks[k] && pct >= +k) { marks[k] = true; track("scroll_" + k); }
+    });
+  }, { passive: true });
+
+  // ---------- Cookie-плашка ----------
+  document.getElementById("cookieOk").addEventListener("click", function(){
+    document.getElementById("cookie").style.display = "none";
+  });
+</script>
+</body>
+</html>
